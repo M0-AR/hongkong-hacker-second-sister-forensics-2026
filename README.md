@@ -9,7 +9,15 @@
 
 **A fully reproducible benchmark from zero to hero — tradecraft verification + NLP benchmark + hidden-pattern discovery on public data.**
 
-> 🌐 **Live website version of this README:** open `preview.html` in your browser, or after pushing to GitHub enable **Settings → Pages → Deploy from branch → `main` / root** (or GitHub Actions) and share `https://<you>.github.io/<repo>/preview.html`. The page is a beautiful, interactive companion to this file with quiz + visuals.
+> 🌐 **Live website — click to open in your browser (same content, 3 URLs, all render the same page):**
+>
+> | URL | When it works | File served |
+> |---|---|---|
+> | [`/`](./index.html) | always (root `index.html` redirect) | `index.html` → `preview.html` |
+> | [`/preview.html`](./preview.html) | source `/` (root) | `preview.html` |
+> | [`/docs/preview.html`](./docs/preview.html) | source `/` (root) *and* source `/docs` | `docs/preview.html` |
+>
+> After pushing to GitHub: enable **Settings → Pages → Source: GitHub Actions** *or* **Deploy from branch → `main` / `/` (root)** *or* **`main` / `/docs`**. All three URLs above keep working under either setting (robust mirrors, see [Website section](#-website--github-pages)). Example: `https://M0-AR.github.io/hongkong-hacker-second-sister-forensics-2026/preview.html`. Local: open `preview.html` or run `python3 -m http.server 8000` → `http://localhost:8000/preview.html`.
 
 ![Demo — make all → forensics + benchmark + burst + pytest](docs/demo.gif)
 
@@ -124,15 +132,49 @@ Let's work this out in a step-by-step way to be sure we have the right answer. N
 
 ## 🌐 Website / GitHub Pages
 
-This repo ships a zero-dependency static site: **`preview.html`** (companion: `index.html`).
+This repo ships a zero-dependency static site with mirrors so **every URL renders correctly in the browser** under either Pages setting.
+
+**Click to open (works locally and on Pages): [`/`](./index.html) · [`/preview.html`](./preview.html) · [`/docs/preview.html`](./docs/preview.html)**
+
+| `/` | `/preview.html` | `/docs/preview.html` | Meaning |
+|---|---|---|---|
+| 200 | 200 | 404 | source = `/docs`, all good (docs entry serves `/`) |
+| 200 | 404 | 200 | source = `/` (root); file only under `/docs` |
+| 404 | 404 | 404 | Pages off / still building / wrong branch |
+| 200 | 404 | 404 | source = `/`, but entry/file missing |
+
+Diagnose in 10 seconds (no login, after Pages shows Deployed/Success + 1–2 min):
+
+```bash
+BASE="https://M0-AR.github.io/hongkong-hacker-second-sister-forensics-2026"
+for p in "" "preview.html" "docs/preview.html"; do
+  printf "%s -> " "/$p"
+  curl -s -o /dev/null -w "%{http_code}\n" "$BASE/$p"
+done
+# expect 200/200/200 with the mirror layout below
+```
+
+Rules applied here:
+
+1. Entry `index.html` sits at the **top of the chosen source** (`/` and `/docs`), case-sensitive.
+2. URLs mirror repo paths **under the source**: source `/docs` → `docs/x.html` serves at `/x.html`; source `/` → `docs/x.html` serves at `/docs/x.html`.
+3. Empty `.nojekyll` in **both** `/` and `/docs` (Jekyll would otherwise ignore underscore paths).
+4. Asset paths are **relative**: root pages use `docs/demo.gif`; `docs/` pages use `demo.gif`. No absolute/local paths.
+5. Wait 1–2 min after Settings → Pages change; check Actions “pages build and deployment” before re-probing.
+
+Layout in this repo (robust mirrors):
+
+- `docs/preview.html` + `docs/index.html` = canonical page (asset `demo.gif`)
+- `preview.html` at root = mirror (asset `docs/demo.gif`; diff vs `docs/` shows only that line)
+- `index.html` at root = instant redirect to `preview.html` + fallback links to both `/preview.html` and `/docs/preview.html`
+- `.nojekyll` at root **and** `docs/.nojekyll`
 
 **Deploy in 2026 (2 minutes):**
 1. Push to GitHub.
-2. Go to **Settings → Pages → Source: GitHub Actions** *or* **Deploy from branch → `main` / root** (both work; Actions is current default).
-3. Share `https://<you>.github.io/<repo>/preview.html` (or `/index.html`) next to the demo GIF at the top of this README.
-4. Asset paths are relative (`docs/demo.gif`) so user-site (`/`) and project-site (`/repo/`) both work with zero config.
+2. Go to **Settings → Pages → Source: GitHub Actions** *or* **Deploy from branch → `main` / `/` (root)** *or* **`main` / `/docs`** — any works; `/docs` recommended.
+3. Share `https://M0-AR.github.io/hongkong-hacker-second-sister-forensics-2026/preview.html` next to the demo GIF.
 
-Local preview: `python3 -m http.server 8000` → `http://localhost:8000/preview.html`, or just double-click the file.
+Local preview: `python3 -m http.server 8000` → `http://localhost:8000/preview.html` and `http://localhost:8000/docs/preview.html`, or just double-click either file.
 
 What visitors get: hero + live tables + beginner guide + features + user stories + **interactive 8-question quiz** (scratch → pro, instant explanations, score) + FAQ + quickstart.
 
@@ -321,8 +363,11 @@ BTC 80,840; AAPL 342.96; demo attention volatility (pstdev 1.4509, 4 bursts) ⇒
 ## 8. Repository map
 
 ```
-├── preview.html / index.html      # website (quiz + visuals, Pages-ready)
+├── preview.html / index.html      # root mirrors (index = redirect → preview)
+├── docs/preview.html / docs/index.html  # canonical Pages source (asset demo.gif)
 ├── docs/demo.gif / docs/preview.png
+├── .nojekyll + docs/.nojekyll
+├── .github/workflows/pages.yml
 ├── Dockerfile / docker-compose.yml / Makefile / requirements.txt
 ├── src/forensics/{ip,email,exif,wifi}_forensics.py
 ├── src/nlp/benchmark.py
