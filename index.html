@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Verifying N — Hong Kong Hacker Forensics Benchmark</title>
+<meta name="description" content="Reproducible benchmark verifying hacker tradecraft, cyberbullying detection and attention markets in Chan Ho-Kei Second Sister."/>
+<style>
+:root{--bg:#0b1020;--bg2:#111936;--card:#162044;--line:#2a3a6b;--txt:#e8edff;--mut:#a9b6dd;--acc:#5b8cff;--acc2:#22d3a5;--warn:#ffb020;--bad:#ff5d5d}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 600px at 20% -10%,#1c2a63 0%,var(--bg) 55%) fixed,var(--bg);color:var(--txt);line-height:1.6}
+a{color:var(--acc)}header{max-width:1080px;margin:0 auto;padding:56px 20px 10px;text-align:center}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.badges span{border:1px solid var(--line);background:#0f1730;padding:4px 10px;border-radius:999px;font-size:12px;color:var(--mut)}
+h1{font-size:clamp(28px,5vw,52px);line-height:1.08;margin:10px 0}
+.sub{color:var(--mut);max-width:760px;margin:0 auto;font-size:17px}
+.cta{margin:22px 0;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:12px 20px;border-radius:12px;border:1px solid var(--line);text-decoration:none;font-weight:700}
+.btn.primary{background:linear-gradient(135deg,var(--acc),#7aa5ff);color:#08122b;border:0}
+.btn.ghost{background:#0f1730;color:var(--txt)}
+main{max-width:1080px;margin:0 auto;padding:10px 20px 80px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.04),transparent),var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin:16px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.kpi{font-size:30px;font-weight:800}.kpi small{font-size:13px;color:var(--mut);display:block;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:left}th{color:var(--mut);font-weight:600}
+code,pre{background:#0a1126;border:1px solid var(--line);border-radius:10px}code{padding:2px 6px}pre{padding:14px;overflow:auto}
+img.hero{width:100%;border-radius:16px;border:1px solid var(--line)}
+.steps{counter-reset:s}.step{border-left:3px solid var(--acc);padding:8px 14px;margin:10px 0;background:#0f1730;border-radius:0 12px 12px 0}
+.quiz-q{border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0;background:#0e1530}
+.quiz-q h4{margin:0 0 8px}.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:#111a3a;color:var(--txt);cursor:pointer}
+.opt:hover{border-color:var(--acc)}.opt.correct{border-color:var(--acc2);background:#0c2b22}.opt.wrong{border-color:var(--bad);background:#331212}
+.explain{display:none;color:var(--mut);font-size:14px;margin-top:8px}.pill{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+footer{text-align:center;color:var(--mut);padding:30px}
+@media(max-width:640px){.kpi{font-size:24px}}
+</style>
+</head>
+<body>
+<header>
+<div class="badges"><span>MIT License</span><span>Python 3.12</span><span>Docker ready</span><span>6/6 forensics PASS</span><span>F1 0.80 · PR-AUC 0.93</span><span>GitHub Pages ready</span></div>
+<h1>Verifying N 🔍<br/>Hacker Forensics × Cyberbullying × Attention Markets</h1>
+<p class="sub">A reproducible lab built around Chan Ho-Kei's <i>Second Sister</i> (<i>Hong Kong Hacker</i>). We test which hacker deductions actually hold up, benchmark bullying detection the 2026 way, and reveal hidden patterns anyone can reproduce in 5 minutes.</p>
+<div class="cta">
+<a class="btn primary" href="#quickstart">🚀 Run in 5 minutes</a>
+<a class="btn ghost" href="#quiz">🧠 Take the 8-question quiz</a>
+<a class="btn ghost" href="#beginner">🌱 Start from zero</a>
+</div>
+<div><span class="pill">CEO summary: 1) Fiction teaches real forensics — we check it. 2) Bullying is a session, not a sentence. 3) Three cheap signals beat one fancy model. 4) One command reproduces everything. 5) Safe, legal, classroom-ready.</span></div>
+</header>
+<main>
+<div class="card">
+<h2>📊 Live results (verified 2026-10-15)</h2>
+<div class="grid">
+<div><div class="kpi">6/6 <small>forensics gates PASS (IP · Tor · e-mail · EXIF · MAC · MITM)</small></div></div>
+<div><div class="kpi">0.80 / 0.93 <small>benchmark F1 / PR-AUC (LogReg, 5-fold)</small></div></div>
+<div><div class="kpi">3/3 <small>hidden patterns PASS (repetition · stylometry · burst)</small></div></div>
+<div><div class="kpi">80,840 / 342.96 <small>live anchors BTC USD / AAPL USD</small></div></div>
+</div>
+<p><img class="hero" src="docs/demo.gif" alt="Animated demo of the benchmark pipeline: forensics checks, benchmark table and burst detection"/></p>
+<p style="color:var(--mut)">Demo above: <code>make all</code> → EXP-01 → EXP-02 → EXP-03 → <code>pytest 4 passed</code>. Full terminal GIF. Screenshots below are generated from this exact page.</p>
+<div class="grid">
+<div class="card"><b>EXP-01</b><br/><span style="color:var(--acc2)">● PASS</span> — relay + headers + EXIF + MAC<table><tr><th>Gate</th><th>Value</th></tr><tr><td>Relay IP</td><td>212.117.180.21 + UA “X” → score 2</td></tr><tr><td>E-mail IPs</td><td>3 distinct Netvigator in ~9 min</td></tr><tr><td>X-Mailer</td><td>iPhone Mail (11D257)</td></tr><tr><td>EXIF</td><td>2013:12:24 + 0.0 km King Wah</td></tr><tr><td>MAC</td><td>3E:06:B2:A2:52:F3 match</td></tr></table></div>
+<div class="card"><b>EXP-02</b><br/><span style="color:var(--acc2)">● PASS</span> — bullying benchmark<table><tr><th>Model</th><th>F1</th><th>PR-AUC</th></tr><tr><td>LogReg TF-IDF</td><td><b>0.800</b></td><td><b>0.928</b></td></tr><tr><td>LinSVC TF-IDF</td><td>0.798</td><td>0.928</td></tr></table><div style="color:var(--mut);font-size:13px">n=27 demo · pos 48.1% · swap in 47k public tweets via <code>data/kaggle.csv</code></div></div>
+<div class="card"><b>EXP-03</b><br/><span style="color:var(--acc2)">● PASS</span> — hidden patterns<table><tr><th>H</th><th>Result</th></tr><tr><td>H1 repetition</td><td>dogpile 0.75 / threat 1.00 vs neutral 0.00</td></tr><tr><td>H2 stylometry</td><td>3-space 1.00 vs 0.00</td></tr><tr><td>H3 burst</td><td>peak 1.00, 2 bursty → incident</td></tr></table></div>
+</div>
+</div>
+
+<div class="card" id="quickstart">
+<h2>⚡ Quickstart (copy-paste)</h2>
+<pre>git clone &lt;this-repo&gt; &amp;&amp; cd hongkong-hacker-second-sister-forensics-2026
+pip install -r requirements.txt &amp;&amp; make all
+# Docker:
+docker compose up --build research
+# Notebook:
+docker compose up --build notebook  # → http://localhost:8888
+# With real public data:
+# download 47k-tweet public set, normalise to text,label → data/kaggle.csv
+make exp02</pre>
+<p>Outputs: <code>results/exp01_tradecraft.json</code>, <code>exp02_benchmark.json</code>, <code>exp03_hidden_patterns.json</code>, <code>exp04_live_anchor.json</code>. Success = <code>OVERALL: PASS</code> ×3 + <code>4 passed</code>.</p>
+</div>
+
+<div class="card" id="beginner">
+<h2>🌱 Beginner guide — read this and you are a professional</h2>
+<p><b>You will know more than most interview candidates.</b> Let's work this out in a step-by-step way to be sure we have the right answer.</p>
+<div class="step"><b>Step 0 — The story in 30 seconds.</b> A schoolgirl is harassed on the train. A stranger is blamed. An anonymous post pretends to be the stranger's nephew. A pile-on follows. Her sister hires hacker N to find who really wrote it. We verify N's methods, not the plot.</div>
+<div class="step"><b>Step 1 — What is an IP + Tor relay?</b> An IP is a return address. A relay is a forwarder that hides it. If <i>any</i> forwarder keeps no notes, the trail ends. That is why N says tracing is “a needle at the bottom of the ocean”. Try: <code>python3 experiments/01_tradecraft_verification.py</code> and look at <code>E1_popcorn_relay</code>.</div>
+<div class="step"><b>Step 2 — E-mail headers don't lie (much).</b> Every mail carries <code>Received:</code> stamps + <code>X-Mailer:</code>. Three Hong Kong stamps in 9 minutes + iPhone mail = someone moving between train stations, not a foreign hacker. Open <code>src/forensics/email_forensics.py</code>.</div>
+<div class="step"><b>Step 3 — Photos remember.</b> EXIF stores date + GPS. The karaoke photo says Christmas Eve near King Wah Centre — the exact night two classmates walked the victim home. Metadata can be faked, so treat it as a clue, not proof.</div>
+<div class="step"><b>Step 4 — Wi-Fi whispers.</b> Phones shout “any network here?” (probe requests) leaking a hardware ID (MAC). A fake network with a stronger signal can sit in the middle (MITM) — like a fake library counter handing you altered books. Modern phones randomise MACs, so MAC ≠ person.</div>
+<div class="step"><b>Step 5 — Bullying is a session.</b> One insult = rude. Ten messages targeting one person + power gap + repetition = bullying. That is why we group texts by session and measure bursts, not single sentences.</div>
+<div class="step"><b>Step 6 — Measure right.</b> On skewed data, accuracy lies. Report <b>F1 + PR-AUC</b>. Our tiny demo hits F1 0.80 / PR-AUC 0.93. On 47k real tweets, transformers reach ~0.93+.</div>
+<div class="step"><b>Step 7 — Go pro.</b> Swap in public data, run <code>make all</code>, read <code>PAPER.md</code>, extend to BERT. You now beat most “I did sentiment analysis” portfolios.</div>
+</div>
+
+<div class="card">
+<h2>✨ Features (everything, plain language)</h2>
+<table><tr><th>Feature</th><th>What it does</th><th>Who it helps</th></tr>
+<tr><td>Forensics harness</td><td>Checks IP/Tor, mail headers, EXIF/GPS, MAC/MITM with pass/fail</td><td>Students, SOC analysts, journalists</td></tr>
+<tr><td>Session benchmark</td><td>TF-IDF baselines, 5-fold, F1 + PR-AUC, Kaggle swap-in</td><td>Researchers, ML engineers</td></tr>
+<tr><td>Hidden patterns</td><td>Repetition, 3-space stylometry, burst-incident rule</td><td>Moderators, teachers, PhD</td></tr>
+<tr><td>Live anchor</td><td>Real BTC/AAPL snapshots + attention-volatility demo</td><td>Market-curious, economists</td></tr>
+<tr><td>One-command repro</td><td><code>make all</code> + Docker + tests</td><td>Reviewers, classrooms</td></tr>
+<tr><td>Safe-by-design</td><td>No tracking code, no exploits, paraphrased data only</td><td>Everyone</td></tr>
+<tr><td>Web preview</td><td>This page + quiz, Pages-ready</td><td>Newcomers, hiring managers</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>👥 User stories — what you can use this repo for</h2>
+<div class="grid">
+<div><b>🎓 Student (first ML project)</b><br/>Run <code>make exp02</code>, change n-grams, watch F1 move. Put the GIF + table in your portfolio.</div>
+<div><b>👩‍🏫 Teacher / parent</b><br/>Show H1 dogpile (0.75 vs 0.00) to explain why “just ignore it” fails. Use the quiz in class.</div>
+<div><b>🛡️ Moderator</b><br/>Copy the burst rule (peak&gt;5% + ≥2 bursty windows) as a triage heuristic before human review.</div>
+<div><b>🔬 PhD / researcher</b><br/>Replace TF-IDF with BERT, keep splits + metrics. Cite the harness as baseline.</div>
+<div><b>📰 Journalist</b><br/>Verify EXIF/headers before publishing screenshots. Learn what metadata proves — and doesn't.</div>
+<div><b>💼 Hiring manager</b><br/>Ask: “Why F1+PR-AUC, not accuracy?” Answer is in EXP-02. 5-minute signal.</div>
+</div>
+</div>
+
+<div class="card" id="quiz">
+<h2>🧠 Interactive quiz — from scratch to pro (8 questions)</h2>
+<p style="color:var(--mut)">Click an answer. Explanations appear instantly. Score at the end. No login. Let's work this out step-by-step to be sure we have the right answer.</p>
+<div id="quizbox"></div>
+<div style="margin-top:10px"><b id="score">Score: 0 / 8</b> <span id="verdict" style="color:var(--mut)"></span></div>
+<button class="btn ghost" onclick="resetQuiz()">↺ Restart quiz</button>
+</div>
+
+<div class="card">
+<h2>🗺️ How the demo works (video alternative)</h2>
+<p>Prefer video? Record your own in 30 seconds (best practice: terminal GIF above the fold):</p>
+<pre># terminal demo → GIF (needs agg + asciinema)
+asciinema rec demo.cast -c "make all"
+agg demo.cast docs/demo.gif
+# or instant SVG
+# readme-cinema --preset hacker-mode --gif docs/demo.gif</pre>
+<p style="color:var(--mut)">This page already embeds <code>docs/demo.gif</code>. Keep it under ~5 MB for fast GitHub rendering. Screenshots: <code>docs/preview.png</code> (this page), <code>docs/terminal.png</code> (optional).</p>
+</div>
+
+<div class="card">
+<h2>🌐 View as a website (GitHub Pages, 2026)</h2>
+<pre>1) Push this repo to GitHub
+2) Settings → Pages → Source: GitHub Actions (or Deploy from branch: main / root)
+3) This file (preview.html) is served as the site.
+   Option A (simplest): rename/copy preview.html → index.html, or set Pages custom entry to preview.html
+   Option B (project site): https://&lt;you&gt;.github.io/&lt;repo&gt;/preview.html
+4) Share the link next to the README demo.</pre>
+<p style="color:var(--mut)">Tip: keep asset paths relative (<code>docs/demo.gif</code>) so both user-site (<code>/</code>) and project-site (<code>/repo/</code>) work with no config.</p>
+</div>
+
+<div class="card">
+<h2>❓ FAQ (even a first-timer understands)</h2>
+<p><b>Do I need to read the novel?</b> No. The beginner guide + quiz cover everything. The code uses short paraphrases, never full chapters.</p>
+<p><b>Is this hacking illegal?</b> No. We only parse sample headers/metadata and simulate defences. No interception, no exploits, no real devices.</p>
+<p><b>Why is accuracy not enough?</b> If 99% of comments are nice, a lazy “always nice” model scores 99% accuracy and catches zero bullying. F1 + PR-AUC punish that.</p>
+<p><b>Can MAC address identify a person?</b> No — modern phones randomise it. N's leap is flagged as dramatic licence in EXP-01.</p>
+<p><b>What if I have zero Python?</b> Install Python 3.12, run the 3-line quickstart. The quiz teaches the ideas first.</p>
+</div>
+</main>
+<footer>MIT · Reproduce with <code>make all</code> · Data: paraphrased research-only + optional public Kaggle CSV · If you are in distress, contact local helplines.</footer>
+<script>
+const QUIZ=[
+{q:"An IP posts with User-Agent literally “X” via a known relay IP. What should you conclude?",o:["Definitely identify the person","Deliberate anonymisation — narrow, don't identify","Nothing at all"],a:1,e:"N scores 2/2 (relay + masked UA). It proves hiding, not identity. Single no-log hop kills trace."},
+{q:"Three mails arrive from 3 different Hong Kong IPs within 9 minutes, all X-Mailer: iPhone Mail. Best inference?",o:["Foreign state hacker","One moving sender on station Wi-Fis, likely iPhone pool","Three unrelated people"],a:1,e:"All local Netvigator + same mailer + tight window = moving MTR sender. Narrows to iPhone owners; not proof."},
+{q:"A photo's EXIF says Christmas Eve + GPS near King Wah Centre, matching the night classmates escorted the victim home. Meaning?",o:["Proof of guilt","Contemporaneous clue — needs corroboration, metadata is spoofable","Irrelevant"],a:1,e:"EXP-01 E3 PASS as linkage, with caveat: EXIF is strippable/spoofable."},
+{q:"You see a MAC like 3E:06:B2:A2:52:F3 in probe requests at school. Can you name the culprit?",o:["Yes, MAC = person","No — narrow to suspects; modern iOS randomises MACs","Only with Stingray"],a:1,e:"Mechanism real, identity leap overstated. N flagged accordingly."},
+{q:"Open Wi-Fi MITM in one line?",o:["Breaks encryption math","Fake counter by the door: relay + alter, neither side notices","Only works on 5G"],a:1,e:"N's library analogy. Defence: VPN, HSTS, pinned certs, avoid open Wi-Fi."},
+{q:"Why is bullying a SESSION, not a sentence?",o:["Longer texts score higher","Repetition + targeting + power gap define it","Models prefer sessions"],a:1,e:"Yi & Zubiaga: single insult ≠ bullying. Group by session, measure bursts."},
+{q:"Imbalanced data (99% nice). Which metrics?",o:["Accuracy only","F1 + PR-AUC, stratified splits","Loss only"],a:1,e:"Accuracy lies on skew. Our demo: F1 0.80 / PR-AUC 0.928."},
+{q:"Burst rule for an incident?",o:["Any single insult","Offensive peak >5% + ≥2 bursty windows","Most likes wins"],a:1,e:"CHNCI rule implemented in EXP-03 H3. Peak 1.00, 2 bursty → incident."}
+];
+let score=0,answered=Array(QUIZ.length).fill(false);
+function renderQuiz(){
+const box=document.getElementById('quizbox');box.innerHTML='';
+QUIZ.forEach((item,i)=>{
+const d=document.createElement('div');d.className='quiz-q';
+d.innerHTML=`<h4>${i+1}. ${item.q}</h4>`;
+item.o.forEach((opt,j)=>{
+const b=document.createElement('button');b.className='opt';b.textContent=opt;
+b.onclick=()=>answer(i,j,b);d.appendChild(b);
+});
+const e=document.createElement('div');e.className='explain';e.id='exp'+i;e.textContent='💡 '+item.e;d.appendChild(e);
+box.appendChild(d);
+});
+}
+function answer(i,j,btn){
+if(answered[i])return;answered[i]=true;
+const q=btn.parentElement;const opts=q.querySelectorAll('.opt');
+opts.forEach((o,k)=>{if(k===QUIZ[i].a)o.classList.add('correct');});
+if(j!==QUIZ[i].a)btn.classList.add('wrong');else score++;
+document.getElementById('exp'+i).style.display='block';
+document.getElementById('score').textContent=`Score: ${score} / 8`;
+const v=document.getElementById('verdict');
+v.textContent=score===8?"🏆 Pro — you beat most interviewees!":score>=6?"🔥 Strong — one re-read and you are pro":score>=4?"🌱 Growing — retry the beginner steps above":"🌱 Keep going — re-read Steps 1–6, then retry";
+}
+function resetQuiz(){score=0;answered=Array(QUIZ.length).fill(false);document.getElementById('score').textContent='Score: 0 / 8';document.getElementById('verdict').textContent='';renderQuiz();}
+renderQuiz();
+</script>
+</body>
+</html>

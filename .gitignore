@@ -1,0 +1,7 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+results/*.json
+!results/.gitkeep
+data/kaggle.csv
+.ipynb_checkpoints/

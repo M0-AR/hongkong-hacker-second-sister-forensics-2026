@@ -1,0 +1,16 @@
+services:
+  research:
+    build: .
+    volumes:
+      - ./:/work
+      - ./results:/work/results
+    working_dir: /work
+    command: ["make", "all"]
+  notebook:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/work
+    working_dir: /work
+    command: ["bash", "-c", "pip install notebook >/dev/null 2>&1; jupyter notebook --ip=0.0.0.0 --no-browser --allow-root"]
